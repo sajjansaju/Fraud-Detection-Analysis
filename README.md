@@ -3,7 +3,15 @@ This project analyzes a financial transactions dataset using PostgreSQL to detec
 
 
 ---
+## 🛡️ License
 
+This project is licensed under the CC BY-NC-ND 4.0 License.  
+Unauthorized reposting or modification is strictly prohibited.  
+[View License](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+📩 For access or collaboration requests, please email me at: navakumarsajjan@gmail.com
+
+---
 ## 📁 Dataset Description
 
 The dataset consists of simulated financial transactions with the following key columns:
@@ -21,16 +29,6 @@ The dataset consists of simulated financial transactions with the following key 
 
 
 The dataset used is publicly available on Kaggle: https://www.kaggle.com/datasets/amanalisiddiqui/fraud-detection-dataset?select=AIML+Dataset.csv
-
----
-
-## 🛡️ License
-
-This project is licensed under the CC BY-NC-ND 4.0 License.  
-Unauthorized reposting or modification is strictly prohibited.  
-[View License](http://creativecommons.org/licenses/by-nc-nd/4.0/)
-
-📩 For access or collaboration requests, please email me at: navakumarsajjan@gmail.com
 
 ---
 
