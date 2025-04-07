@@ -1,3 +1,6 @@
+
+-- Licensed under CC BY-NC-ND 4.0: Do not repost or modify without permission.
+
 --Basic Queries to understand dataset
 
 --1)Total transactions and fraud count
@@ -91,7 +94,7 @@ WHERE isFraud = 1
       FROM transactions
   );
 
-
+-- Licensed under CC BY-NC-ND 4.0: Do not repost or modify without permission.
 
 
 
