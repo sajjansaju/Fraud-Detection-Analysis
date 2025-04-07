@@ -41,23 +41,30 @@ from transactions
 group by unit_of_time
 order by unit_of_time asc;
 
+--7)Zero Balance Patterns: Detects transactions where amount transfered or paid to recipients show zero balance.
+Select *
+from transactions
+where type in ('TRANSFER','PAYMENT')
+and newbalanceDest = 0
+and amount > 0;
+
 --Advanced Queries for insights and anomaly detection
 
---7)Mismatch in balances (possible manipulation or allowing overdrafts and simply zeroing out balances)
+--8)Mismatch in balances (possible manipulation or allowing overdrafts and simply zeroing out balances)
 select *
 from transactions
 where (type in ('CASH_OUT','DEBIT','PAYMENT','TRANSFER') and (oldbalanceorg <> newbalanceorig + amount)) 
 or 
 (type ='CASH_IN' and (oldbalanceorg <> newbalanceorig - amount));
 
---8)Looping or round-tripping (money goes out, then comes back in)
+--9)Looping or round-tripping (money goes out, then comes back in)
 SELECT DISTINCT t1.nameOrig
 FROM transactions t1
 JOIN transactions t2
   ON t1.nameOrig = t2.nameDest
   AND t1.amount = t2.amount;
 
---9)Running total of frauds over time
+--10)Running total of frauds over time
 SELECT step,
        SUM(isFraud) AS no_of_frauds,
        SUM(SUM(isFraud)) OVER (ORDER BY step) AS running_total_frauds
@@ -65,7 +72,7 @@ FROM transactions
 GROUP BY step
 ORDER BY step;
 
---10)Most frequently targeted accounts in fraud cases
+--11)Most frequently targeted accounts in fraud cases
 select namedest,
 sum(isfraud) as times_targeted
 from transactions
@@ -74,7 +81,7 @@ group by namedest
 order by times_targeted desc
 limit 10;
 
---11)High-value fraud transactions (top 1%)
+--12)High-value fraud transactions (top 1%)
 SELECT *
 FROM transactions
 WHERE isFraud = 1
